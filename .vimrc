@@ -1,0 +1,10 @@
+set ruler
+set autoread
+set backspace=indent,eol,start
+set autoindent
+set expandtab
+set scrolloff=5
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set showmatch

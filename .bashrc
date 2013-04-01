@@ -111,4 +111,8 @@ if [ -f /opt/ros/fuerte/setup.bash ]; then
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/karl/code/corobotics
 fi
 
+if [ -d ~/.cabal ]; then
+    export PATH=$PATH:~/.cabal/bin
+fi
+
 export CLASSPATH=$CLASSPATH:/usr/local/lib/pj/lib
