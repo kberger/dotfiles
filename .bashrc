@@ -116,3 +116,4 @@ if [ -d ~/.cabal ]; then
 fi
 
 export CLASSPATH=$CLASSPATH:/usr/local/lib/pj/lib
+export PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.8.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
