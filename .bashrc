@@ -82,7 +82,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -halF'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -111,9 +111,15 @@ if [ -f /opt/ros/fuerte/setup.bash ]; then
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/karl/code/corobotics
 fi
 
+# Additional PATH setup
+export PATH=/opt/cabal/1.22/bin:/opt/ghc/7.8.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
 if [ -d ~/.cabal ]; then
     export PATH=$PATH:~/.cabal/bin
 fi
 
+if [ -d ~/.local/bin ]; then
+    export PATH=~/.local/bin:$PATH
+fi
+
 export CLASSPATH=$CLASSPATH:/usr/local/lib/pj/lib
-export PATH=~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.8.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
