@@ -40,7 +40,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -51,6 +51,7 @@ if [ -n "$force_color_prompt" ]; then
     else
 	color_prompt=
     fi
+    export LSCOLORS=ExFxBxDxCxegedabagacad
 fi
 
 if [ "$color_prompt" = yes ]; then
@@ -69,6 +70,8 @@ xterm*|rxvt*)
     ;;
 esac
 
+alias ls='ls -G'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -82,9 +85,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -halF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -GhalF'
+alias la='ls -GA'
+alias l='ls -GCF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
