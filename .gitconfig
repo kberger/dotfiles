@@ -1,3 +1,11 @@
 [user]
+	name = Karl
 	email = krab.berger@gmail.com
-	name = Karl Berger
+[core]
+	autocrlf = input
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[push]
+	default = simple
