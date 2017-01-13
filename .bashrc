@@ -55,9 +55,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w '
 fi
 unset color_prompt force_color_prompt
 
@@ -114,6 +114,17 @@ if [ -f /opt/ros/fuerte/setup.bash ]; then
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/karl/code/corobotics
 fi
 
+if [ -f ~/git-completion.sh ]; then
+    . ~/git-completion.sh
+fi
+
+if [ -f ~/git-prompt.sh ]; then
+    . ~/git-prompt.sh
+    export GIT_PS1_SHOWDIRTYSTATE=1
+    export PS1=$PS1'$(__git_ps1 " (%s)"\$ '
+else
+    export PS1=$PS1'\$ '
+fi
 # Additional PATH setup
 export PATH=/opt/cabal/1.22/bin:/opt/ghc/7.8.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
